@@ -43,7 +43,7 @@ class DataLineProtocol(object): #bir yazının aktarımından sorumlu sınıf
 
 class nymph(object): # server ve client özellikleri olan node sınıfı
     nTc=[]
-    error=""
+    error=None
     def __init__(self,nymphData):
         self.myN=nymphData
         self.s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
@@ -88,7 +88,7 @@ class nymph(object): # server ve client özellikleri olan node sınıfı
         if(0==self.otN_s.connect_ex((self.otN.HOST, self.otN.PORT))):
             pass #self.otN_s.connect((self.otN.HOST, self.otN.PORT))
         else:
-            self.error="offline node"
+            self.error="offline_node"
             print("offline node")
             self.otN=None
         return self
@@ -98,7 +98,7 @@ class nymph(object): # server ve client özellikleri olan node sınıfı
             otDLP=DataLineProtocol(self.otN_s)
             otDLP.send(self.sayFormat(word))
         else:
-            self.error="node not connect with anynode"
+            self.error="node_not_connect_with_anynode"
             print("node not connect with anynode")
 
     def sayFormat(self,words):
