@@ -10,5 +10,14 @@ halil=nymphdata('halil','127.0.0.1',8893)
 nihal=nymphdata('nihal','127.0.0.1',8894)
 nuran=nymphdata('nuran','127.0.0.1',8895)
 
+
+
+
+im=nymphdata('akbudak','192.168.1.24',    8080)
+ig=nymphdata('akbudak_gui','192.168.1.24',8081)
+
+e=nymphdata('aybek','192.168.1.206',     8082)
+eg=nymphdata('aybek_gui','192.168.1.206',8083)
+
 #create a nymph example
 #ismail=nymph(ismail)
