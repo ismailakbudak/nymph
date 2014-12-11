@@ -49,7 +49,7 @@ class nymph(object): # server ve client özellikleri olan node sınıfı
         self.s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
         self.s.bind(('',self.myN.PORT))
         self.s.listen(1)
-        print('start...')
+        self.log('start...')
         self.nT=Thread(target = self.server )
         self.nT.start()
         signal.signal(signal.SIGINT, self.signal_handler)
@@ -59,9 +59,9 @@ class nymph(object): # server ve client özellikleri olan node sınıfı
 
     def server(self):
         while 1:
-            #print ('wait for client')
+            self.log('wait for client')
             conn, addr = self.s.accept()
-            #print 'Connected by', addr
+            self.log('Connected by' + str(addr))
             self.newThread(conn,addr) #her bağlantı yeni bir threade aktarılarak serverın müsait olması sağlanır
 
 
@@ -89,7 +89,7 @@ class nymph(object): # server ve client özellikleri olan node sınıfı
             pass #self.otN_s.connect((self.otN.HOST, self.otN.PORT))
         else:
             self.error="offline_node"
-            print("offline node")
+            self.log("offline node")
             self.otN=None
         return self
 
@@ -99,17 +99,20 @@ class nymph(object): # server ve client özellikleri olan node sınıfı
             otDLP.send(self.sayFormat(word))
         else:
             self.error="node_not_connect_with_anynode"
-            print("node not connect with anynode")
+            self.log("node not connect with anynode")
 
     def sayFormat(self,words):
         return words
     
     def signal_handler(self, signal, frame):
         import os
-        print '\nGood bye mortal :)'
+        self.log('Good bye mortal :)')
         self.__del__()
         pid = os.getpid()
         os.kill(pid,1)
+    
+    def log(self,message):
+        print("\nNYMPH :: %s" % message)
 
     def __del__(self):
         #self.s.shutdown(socket.SHUT_RDWR)

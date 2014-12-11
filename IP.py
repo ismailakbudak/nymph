@@ -1,23 +1,19 @@
 from Nymph import *
-ismail=nymphdata("ismail","127.0.0.1",8658)
-erdem=nymphdata('erdem','127.0.0.1',8778)
-ferhat=nymphdata('ferhat','127.0.0.1',8669)
-alptug=nymphdata('alptug','127.0.0.1',9555)
-ali=nymphdata('ali','127.0.0.1',8890)
-veli=nymphdata('veli','127.0.0.1',8891)
-firuze=nymphdata('firuze','127.0.0.1',8892)
-halil=nymphdata('halil','127.0.0.1',8893)
-nihal=nymphdata('nihal','127.0.0.1',8894)
-nuran=nymphdata('nuran','127.0.0.1',8895)
-
-
-
-
-im=nymphdata('akbudak','192.168.1.24',    8090)
-ig=nymphdata('akbudak_gui','192.168.1.24',8091)
-
-em=nymphdata('aybek','192.168.1.206',     8092)
-eg=nymphdata('aybek_gui','192.168.1.206', 8093)
-
-#create a nymph example
-#ismail=nymph(ismail)
+nodes={
+     0: nymphdata('ismail_manager'   ,"127.0.0.1"  ,8658),
+     1: nymphdata('erdem_manager'    ,"127.0.0.1"  ,8659),
+     2: nymphdata('nihal_manager'    ,'127.0.0.1'  ,8778),
+     3: nymphdata('nuran_manager'    ,'127.0.0.1'  ,8669),
+     4: nymphdata('akbudak_manager'  ,'127.0.0.1'  ,9555),
+     5: nymphdata('veli_manager'     ,'127.0.0.1'  ,8890),
+     6: nymphdata('aybek_manager'    ,'127.0.0.1'  ,8891), 
+}
+nodes_gui={ 
+    0: nymphdata('ismail'     ,'127.0.0.1'      ,8892),
+    1: nymphdata('erdem'      ,'127.0.0.1'      ,8893),
+    2: nymphdata('nihal'      ,'127.0.0.1'      ,8894),
+    3: nymphdata('nuran'      ,'127.0.0.1'      ,8895),
+    4: nymphdata('akbudak'    ,'192.168.1.24'   ,8090),
+    5: nymphdata('veli'       ,'192.168.1.24'   ,8091),
+    6: nymphdata('aybek'      ,'192.168.1.206'  ,8092), 
+}
